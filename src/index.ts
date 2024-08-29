@@ -2,6 +2,7 @@ import { MongoClient } from "mongodb";
 
 const express = require("express");
 const body = require("body-parser");
+const cors = require("cors");
 require("dotenv").config({ path: __dirname + "/.env" });
 
 async function start() {
@@ -15,6 +16,8 @@ async function start() {
     const client = new MongoClient(uri);
 
     const mongo = await MongoClient.connect(uri);
+
+    app.use(cors());
 
     await mongo.connect();
 

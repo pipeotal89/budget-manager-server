@@ -13,8 +13,8 @@ export async function createCategoryController(req: any, res: any) {
     }
 
     const result = await db.collection("categories").insertOne({
-      name: name.toLowerCase().replace(" ", "-"),
-      month: month.toLowerCase(),
+      name: name,
+      month: month,
     });
 
     if (result.acknowledged) {
