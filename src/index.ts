@@ -27,7 +27,9 @@ async function start() {
 
     app.use(express.json());
 
+    app.use("/api/v1/balance", require("./routes/balance"));
     app.use("/api/v1/categories", require("./routes/categories"));
+    app.use("/api/v1/products", require("./routes/products"));
 
     //Start server
 

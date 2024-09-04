@@ -2,7 +2,10 @@ export async function getCategoryController(req: any, res: any) {
   try {
     const { db } = req.app;
 
-    const result = await db.collection("categories").find().toArray();
+    const result = await db
+      .collection("categories")
+      .find({ month: req.query.month })
+      .toArray();
 
     res
       .status(200)

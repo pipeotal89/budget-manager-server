@@ -4,14 +4,10 @@ export async function editCategoryController(req: any, res: any) {
   try {
     const { db } = req.app;
 
-    const { name, month, _id } = req.body;
+    const { name, _id } = req.body;
 
     if (!name) {
       return res.status(400).json({ message: "Name is required" });
-    }
-
-    if (!month) {
-      return res.status(400).json({ message: "Month is required" });
     }
 
     if (!_id) {
@@ -25,7 +21,6 @@ export async function editCategoryController(req: any, res: any) {
     const result = await db.collection("categories").updateOne(query, {
       $set: {
         name: name,
-        month: month,
       },
     });
 
