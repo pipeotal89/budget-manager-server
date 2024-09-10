@@ -19,7 +19,7 @@ export async function deleteCategoryController(req: any, res: any) {
     if (result.acknowledged) {
       res.status(200).json({ message: "Category deleted" });
     } else {
-      throw new Error("Category not deleeted");
+      throw new Error("Category not deleted");
     }
   } catch (error) {
     res.status(500).json({ error: error.toString() });
